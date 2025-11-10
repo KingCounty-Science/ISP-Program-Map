@@ -1,0 +1,41 @@
+/* assets/style.css */
+
+.observation-metadata-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgba(202, 176, 229, 0.6); /* light green */
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid black; 
+    margin-bottom: 10px;
+}
+
+.observation-entry-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgba(202, 176, 229, 0.6); /* light green */
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid black; 
+    margin-bottom: 10px;
+}
+.flex-checklists {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: rgba(202, 176, 229, 0.6);
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid black; 
+    margin-bottom: 10px;
+    flex-wrap: wrap; /* This is the key for responsiveness */
+  }
+  
+  .flex-checklists > * {
+    flex: 1 1 200px; /* Allow items to shrink and wrap */
+    min-width: 150px;
+  }

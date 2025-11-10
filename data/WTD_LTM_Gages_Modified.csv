@@ -1,0 +1,65 @@
+site,site_name,parameter,date installed,latitude,longitude,WRIA,basin,WTD Service Area,Intersect_Frac,program,notes,Yearly Hours,KM verified,KM notes,annual equipment cost,WTD vs SWM
+05a,Cherry Creek,discharge,,47.7425972,-121.9411638,,Cherry Creek,False,,SWM ISP,,,,,,SWM
+09a,Covington Creek,discharge,2020-01-01,47.31258,-122.10833,9.0,Soos Creek,True,0.48,WQI  SWM,,40.0,,,,SWM
+09a,Covington Creek,discharge,,47.31258,-122.10833,,Soos Creek,True,0.48,SWM ISP,,,,,,SWM
+21a,Griffin Creek,discharge,,47.6163166,-121.9069861,,Griffin Creek,False,,SWM ISP,,,,,,SWM
+25i,Carey Creek,discharge,,47.42289,-121.96134,,Issaquah Creek,True,0.11,SWM ISP,,,,,,SWM
+26a,Jenkins Creek,discharge,2020-01-01,47.34039,-122.12948,9.0,Soos Creek,True,0.48,WQI ,,40.0,,,,SWM
+26a,Jenkins Creek,discharge,,47.34039,-122.12948,,Soos Creek,True,0.48,SWM ISP,,,,,,SWM
+28a,Judd Creek,discharge,,47.4034,-122.46882,,Judd Creek,False,,SWM ISP,was origionally put as SWM,,,,,SWM
+54a,Soos Creek,discharge,2020-01-01,47.31251,-122.1653,9.0,Soos Creek,True,0.48,WQI  SWM,,40.0,,,,SWM
+54A - USGS,Soos Creek,discharge,1994-08-01,47.3125,-122.164167,9.0,Soos Creek,True,0.48,SWM ISP,,,,,,SWM
+65A,Tahlequah Creek,discharge,,47.3345,-122.5089,,Tahlequah Cr.,False,,SWM ISP,,,,,,SWM
+69B - USGS,Boise Creek,discharge,,47.176111,-122.017222,,MUMT001,True,0.29,SWM ISP,,,,,,SWM
+02A,Bear Creek,discharge,,47.67505,-122.10738,,Bear Creek,True,0.27,ISP,was origionally put as SWM,,,,,WTD
+02G,Cottage Creek ,discharge,2026-12-31,47.7167,-122.088,8.0,Bear Creek,True,0.27,ISP,Can this one be modeled from gage 02g?,40.0,yes,,410.0,WTD
+03G,Springbrook Creek,discharge,2020-04-02,47.46808333,-122.23436,8.0,BLCK,True,1.0,ISP/WQI,Upgraded to telemetry also supports Black River PS,40.0,,,410.0,WTD
+03V,Springbrook Creek Rain Gage,precipitation,2020-04-02,47.46808,-122.23436,8.0,BLCK,True,1.0,WQI Basin Support,Replaced I and I gage at pump plant,20.0,,,410.0,WTD
+09D,Ravensdale Creek (Lake Sawyer Inflow #3),discharge,1993-03-01,47.32636,-122.02816,9.0,Soos Creek,True,0.48,,,40.0,,,,WTD
+15B,Pine Lake Creek,discharge,2026-12-31,47.60099,-122.08058,8.0,ELSA024,True,1.0,ISP,,40.0,yes,,410.0,WTD
+15c,Laughing Jacobs Creek,discharge,,47.56538,-122.0521,,ELS Laughing Jacob's,True,0.91,ISP,was orgionally put as SWM,,,,,WTD
+15g,George Davis Creek,discharge,2025-10-31,47.61504,-122.06664,8.0,ELS Inglewood,True,1.0,ISP,,40.0,yes,,410.0,WTD
+15h,Ebright Creek,discharge,2022-10-01,47.60843,-122.07279,8.0,ELS 14 15 16,True,1.0,ISP/WQI,existing gage will be part of ISP program,40.0,yes,,410.0,WTD
+15i,Zackuse Creek,discharge,,47.61005,-122.066051,,ELS 10 12,True,1.0,ISP,was origionally put as SWM,,,,,WTD
+17b,Gorsuch Creek ,discharge,2020-01-01,47.45368,-122.44465,9.0,Gorsuch Cr.,True,0.42,ISP/WQI ,was origionally put as SWM and WTD,40.0,,,,WTD
+17u,Gorsach Creek,precipitation,2020-01-01,47.45175,-122.455806,,Gorsuch Cr.,True,0.42,WQI ,,20.0,,,,WTD
+20B,Forbes Creek 113th Ct NE and NE 106th,discharge,2025-01-29,47.69652,-122.19041,8.0,FOCR002,True,1.0,ISP/WQI,gage installed Jan 2025 for ISP program,40.0,yes,,410.0,WTD
+20C,Cochran Springs,discharge,2025-10-31,47.64482,-122.201367,8.0,Yarrow Creek,True,1.0,ISP,gage installed Oct 2025 for ISP program,40.0,yes,,410.0,WTD
+20D,Fairweather Creek,discharge,2026-12-31,47.6365,-122.230611,8.0,Fairweather Creek,True,1.0,ISP,,40.0,yes,,410.0,WTD
+25A,Issaquah at USGS Gage near Mouth,discharge,2020-01-01,47.55218,-122.04795,8.0,Issaquah Creek,True,0.11,ISP,was origionally listed as SWM ISP and Fish Habitat WRIA 08,40.0,,,410.0,WTD
+25L,Issaquah Creek Upstream,discharge,2026-12-31,47.52711214,-122.0384431,8.0,Issaquah Creek,True,0.11,ISP ,Replaces 40T.  Upstream of hatchery. Fish Habitat WRIA 8,40.0,yes,,410.0,WTD
+27a,Juanita Creek,discharge,,47.70767,-122.2149,,JUAN,True,1.0,ISP,was origionally put as swm,,,,,WTD
+27L,Juanita/Windsor Vista,discharge,2023-03-30,47.73163,-122.190351,8.0,JUAN,True,1.0,ISP/WQI,,40.0,,,410.0,WTD
+27V,"Big Finn Hill Park Rain Gage, Kirkland",precipitation,2021-11-22,47.72368,-122.237329,8.0,O.O. Denny Creek,True,1.0,WQI Basin Support,,20.0,,,410.0,WTD
+30AN,Little Bear Creek,discharge,2026-12-31,47.7687,-122.1569,8.0,Little Bear Creek,True,0.2,ISP,,40.0,yes  ,This would be ~4 miles upstream of 30AN,410.0,WTD
+31C,Molasses Creek,discharge,2025-10-31,47.46665,-122.16026,8.0,Cedar Main Urban,True,0.91,ISP,,40.0,yes,,410.0,WTD
+31L,Rock Creek,discharge,2026-12-31,47.37924,-122.01894,8.0,Cedar Main Upper,True,0.13,ISP,,40.0,yes,,410.0,WTD
+31P,Maplewood Creek,discharge,2025-10-31,47.47304,-122.16851,8.0,Cedar Main Urban,True,0.91,ISP,,40.0,yes,,410.0,WTD
+32C,Olson Creek,discharge,2026-12-31,47.34351,-122.2048,8.0,LGRE002,True,1.0,ISP,,40.0,yes,,410.0,WTD
+33Y,Highline College Rain Gage,precipitation,2024-07-16,47.38911,-122.300778,9.0,LPSDF001,False,,WQI Basin Support,,20.0,,,410.0,WTD
+34A,Lyons Creek at Bothell Way,discharge,2025-12-31,47.75293,-122.27781,8.0,LYON,True,1.0,ISP/WQI ,existing gage will be part of ISP program,40.0,yes  ,,410.0,WTD
+35C,McAleer Creek at Bothell Way,discharge,2025-12-31,47.75178,-122.28125,8.0,MCAL,True,0.84,ISP/WQI,existing gage will be part of ISP program,40.0,yes  ,,410.0,WTD
+35U,Bruggers Bog Rain Gage,precipitation,2025-12-31,47.77198,-122.30305,8.0,LYON,True,1.0,WQI Basin Support,,20.0,,,410.0,WTD
+37a,May Creek,discharge,,47.52993,-122.20133,,May Creek,True,0.44,ISP,was origionally put as SWM,,,,,WTD
+37i,May Creek trib at 116th St fishladder,discharge,2020-06-29,47.49899,-122.1268,8.0,May Creek,True,0.44,ISP/WQI,,40.0,,,410.0,WTD
+38U,"Snyders Corner Rain Gage, City of Kirkland",precipitation,2021-02-12,47.66603,-122.163455,8.0,SAMR018,True,1.0,WQI Basin Support,,20.0,,,410.0,WTD
+42A - USGS,Mill Creek (Kent),discharge,,47.383333,-122.223611,,BLCK,True,1.0,ISP,was origionally put as SWM,,,,,WTD
+43a,Shinglemill Creek,discharge,2020-01-01,47.4783,-122.48173,9.0,Shingle Mill,False,,ISP/WQI ,was origionally listed as SWM ISP and WQI WDT we moved it to WTD because it was close to WTD area ,40.0,,,,WTD
+45C,North Creek @ North Creek Parkway,discharge,2021-09-17,47.77036,-122.185921,8.0,North Creek,True,0.71,ISP/WQI ,existing gage will be part of ISP program,40.0,yes  ,,410.0,WTD
+48AN,Patterson Creek,discharge,2026-12-31,47.5879,-121.9535,7.0,Patterson Creek,True,0.11,ISP Fish Habitat WRIA 7,Was going to be sunsetted,40.0,yes,,410.0,WTD
+48y,Patterson Creek,precipitation,2020-01-01,47.5879,-121.9535,7.0,Patterson Creek,True,0.11,Fish Habitat WRIA 7,,20.0,,,,WTD
+51A,Waynita Creek at Waynita Way,discharge,2024-03-01,47.74582,-122.21207,8.0,SAMR004,True,1.0,Fish Habitat WRIA08,Restarted for large restoration downstream into Sammamish,40.0,,,410.0,WTD
+54h,Soosette Creek,discharge,2020-01-01,47.3329,-122.1562,9.0,Soos Creek,True,0.48,WQI ,,40.0,,,,WTD
+54i,Little Soos Creek,discharge,2020-01-01,47.35824,-122.12526,9.0,Soos Creek,True,0.48,ISP/WQI,,40.0,,,,WTD
+54j,Upper Soos Creek,discharge,2020-01-01,47.34353,-122.13443,9.0,Soos Creek,True,0.48,WQI ,,40.0,,,,WTD
+56E,Swamp Creek at KCH,discharge,2022-08-31,47.75873,-122.23724,8.0,Swamp Creek,True,0.68,ISP/WQI,,40.0,,,410.0,WTD
+58A,Thornton Creek,discharge,,47.69624,-122.27651,,THORN,True,1.0,ISP,was origionally put as SWM,,,,,WTD
+63a,Lewis Creek,discharge,,47.56377,-122.09467,,Lewis Creek,True,1.0,ISP,was origionally put as SWM,,,,,WTD
+63C,Idlywood Creek,discharge,2025-09-15,47.64239,-122.10460557,8.0,Idylwood Creek,True,1.0,ISP,gage installed Sept 2025 for ISP program,40.0,yes,,410.0,WTD
+63D,Vasa Creek,discharge,2025-10-31,47.578352,-122.113621,8.0,Vasa Creek,True,1.0,ISP,,40.0,yes,,410.0,WTD
+68a,Pipers Creek,discharge,,47.71062,-122.37103,,PIPE,True,1.0,ISP,was origionally put as SWM,,,,,WTD
+68C,Venema Creek,discharge,2026-12-31,47.71317,-122.36869,8.0,PIPE,True,1.0,ISP,,40.0,yes,,410.0,WTD
+BW2_Rain,Brightwater rain gage on ground,precipitation,2021-06-01,47.78573,-122.14137,8.0,Little Bear Creek,True,0.2,WTD Replacement,,20.0,,,410.0,WTD
+COB_06C,Coal  Creek (Bellevue),discharge,,47.56774,-122.181222,,COACE,True,0.77,ISP,was origionally put as SWM,,,,,WTD
+RPWS_MONMO,Montecello Creek near Mouth,discharge,2025-12-31,47.70369,-122.10281,8.0,Bear Creek,True,0.27,Fish Habitat WRIA08,,40.0,,,410.0,WTD
+SPU_STA098A,Longfellow Creek,discharge,,47.56258,-122.36696,,LONG,True,1.0,ISP,was origionally put as swm,,,,,WTD
