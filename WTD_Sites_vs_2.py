@@ -563,39 +563,37 @@ def create_isp_map(sites_gdf, wtd_service_area, wtd_basins):
     # New WTD ISP/WQI sites
     #  Non ISP sites
     # SWM ISP sites
-    wtd_isp_sites = sites_gdf.loc[(sites_gdf["program"] == "ISP") & (sites_gdf["WTD vs SWM"] == "WTD")]
-    wtd_ispwqi_sites = sites_gdf.loc[(sites_gdf["program"] == "ISP/WQI") & (sites_gdf["WTD vs SWM"] == "WTD")]
-    
-    wtd_non_isp_sites = sites_gdf.loc[~sites_gdf["program"].isin(["ISP", "ISP/WQI"]) & (sites_gdf["WTD vs SWM"] == "WTD")]
-    swm_isp_sites = sites_gdf.loc[(sites_gdf["program"] == "SWM ISP") & (sites_gdf["WTD vs SWM"] == "SWM")]
-    
-    # WTD ISP sites
-    add_filtered_sites(m, wtd_isp_sites, parameter_filter=None, program_filter=None, 
-                       exclude_empty_notes=False, layer_name='New ISP Sites', 
-                       color='#e48448', show=True, radius=5)
-    # Add legend
-    add_isp_map_legend(m, layer_name='New ISP Sites', show=True)
-    
-    # WTD ISP/WQI sites
-    add_filtered_sites(m, wtd_ispwqi_sites, parameter_filter=None, program_filter=None, 
-                       exclude_empty_notes=False, layer_name='New ISP and WQI Sites', 
-                       color='#e44848', show=True, radius=5)
-     # Add legend
-    add_isp_map_legend(m, layer_name='New ISP and WQI Sites', show=True)
-    print(wtd_ispwqi_sites)
-    # WTD Non ISP Sites
-    add_filtered_sites(m, wtd_non_isp_sites, parameter_filter=None, program_filter=None, 
-                       exclude_empty_notes=False, layer_name='WTD Non ISP Sites', 
-                       color='#b2b2b5', show=True, radius=4)
-     # Add legend
-    add_isp_map_legend(m, layer_name='WTD Non ISP Sites', show=True)
 
-    # SWM ISP Sites
-    add_filtered_sites(m, swm_isp_sites, parameter_filter=None, program_filter=None, 
-                       exclude_empty_notes=False, layer_name='SWM Funded ISP Sites', 
-                       color='#487ee4', show=True, radius=5)
-     # Add legend
-    add_isp_map_legend(m, layer_name='SWM Funded ISP Sites', show=True)            
+    #Sites Supporting ISP, WQBE and WQI  Orange #F58427
+    #Sites Supporting WQI and other programs  tellow # D5C12A
+    #SWM Funded ISP Site  Blue #23AFA5
+
+    
+    isp_wqbe_wqi = sites_gdf.loc[(sites_gdf["program"] == "Sites Supporting ISP, WQBE and WQI")]
+    wqi = sites_gdf.loc[(sites_gdf["program"] == "Sites Supporting WQI and other programs")]
+    swm = sites_gdf.loc[(sites_gdf["program"] == "SWM Funded ISP Site")]
+    
+    #Sites Supporting ISP, WQBE and WQI  Orange
+    add_filtered_sites(m, isp_wqbe_wqi, parameter_filter=None, program_filter=None, 
+                       exclude_empty_notes=False, layer_name="Sites Supporting ISP, WQBE and WQI", 
+                       color='#F58427', show=True, radius=5)
+    # Add legend
+    add_isp_map_legend(m, layer_name="Sites Supporting ISP, WQBE and WQI", show=True)
+
+    #Sites Supporting WQI and other programs
+    add_filtered_sites(m, wqi, parameter_filter=None, program_filter=None, 
+                       exclude_empty_notes=False, layer_name="Sites Supporting WQI and other programs", 
+                       color='#D5C12A', show=True, radius=5)
+    # Add legend
+    add_isp_map_legend(m, layer_name="Sites Supporting WQI and other programs", show=True)
+    
+    #SWM funded ISP
+    add_filtered_sites(m, swm, parameter_filter=None, program_filter=None, 
+                       exclude_empty_notes=False, layer_name="SWM Funded ISP Site", 
+                       color='#23AFA5', show=True, radius=5)
+    # Add legend
+    add_isp_map_legend(m, layer_name="SWM Funded ISP Site", show=True)
+            
     # isp = '#FFEC59' or blue #8bc9fe non isp = '#00B0BA'
     #non_wtd_sites = sites_gdf[sites_gdf["WTD Service Area"] == False]
     #add_filtered_sites(m, non_wtd_sites, layer_name='Non WTD Sites', color='#969696', show=True, radius=6)
@@ -674,7 +672,7 @@ def save_map_screenshot(html_path, output_path, pdf_path, window_size=(729, 943)
 if __name__ == "__main__":
     # Import data
     #sites_gdf = site_import(file_path="WTD_map/data/WTD_LTM_Gages.xlsx")
-    sites_gdf = site_import(file_path="WTD_map/data/WTD_LTM_Gages.xlsx")
+    sites_gdf = site_import(file_path="data/WTD_LTM_Gages.xlsx")
     wtd_service_area = wtd_service_area_import()
     basins = basin_import()
     
@@ -684,7 +682,7 @@ if __name__ == "__main__":
     
     # Create and save map
     m = create_map(sites_gdf, wtd_service_area, basins_filter)
-    m.save("WTD_map/data/wtd_map.html")
+    m.save("data/wtd_map.html")
     print(sites_gdf.columns)
     # Export processed sites to CSV
     output_cols = [
@@ -692,13 +690,13 @@ if __name__ == "__main__":
         "WRIA", "basin", "WTD Service Area","Intersect_Frac", "program", "notes", 
         "Yearly Hours", "KM verified", "KM notes", "annual equipment cost", "WTD vs SWM"
     ]
-    sites_gdf[output_cols].to_csv("WTD_MAP/data/WTD_LTM_Gages_Modified.csv", index=False)
+    sites_gdf[output_cols].to_csv("data/WTD_LTM_Gages_Modified.csv", index=False)
     
     # Save screenshot
     save_map_screenshot(
-        html_path='WTD_map/data/wtd_map.html',
-        output_path='WTD_map/data/wtd_map.png',
-        pdf_path='WTD_map/data/wtd_map.pdf',
+        html_path='data/wtd_map.html',
+        output_path='data/wtd_map.png',
+        pdf_path='data/wtd_map.pdf',
         window_size=(729, 943)
     )
     
@@ -708,13 +706,13 @@ if __name__ == "__main__":
 
     ### create filterd isp map
     m = create_isp_map(sites_gdf, wtd_service_area, basins_filter)
-    m.save("WTD_map/data/isp_map.html")
+    m.save("data/isp_map.html")
 
     # Save screenshot
     save_map_screenshot(
-        html_path='WTD_map/data/isp_map.html',
-        output_path='WTD_map/data/isp_map.png',
-        pdf_path='WTD_map/data/isp_map.pdf',
+        html_path='data/isp_map.html',
+        output_path='data/isp_map.png',
+        pdf_path='data/isp_map.pdf',
         window_size=(729, 943)
     )
     print("Map generation complete!")
