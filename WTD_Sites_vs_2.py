@@ -6,9 +6,11 @@ import os
 import folium
 from pathlib import Path
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+#from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.edge.options import Options
 import time
 import base64
+
 
 
 def site_import(file_path, parameter=None):
@@ -150,12 +152,12 @@ def add_map_legend(m, layer_name='WTD Sites', show=True):
         <h4 style="margin: 0 0 10px 0; font-size: 16px; text-align: center; font-weight: bold;">WTD Sites by Parameter</h4>
         <div style="margin: 5px 0;">
             <span style="display: inline-block; width: 12px; height: 12px; 
-                         background-color: #00A5E2; border-radius: 50%; margin-right: 8px;"></span>
+                         background-color: #009E73; border-radius: 50%; margin-right: 8px;  border: 1px solid black;"></span>
             Stream Gage Sites
         </div>
         <div style="margin: 5px 0;">
             <span style="display: inline-block; width: 12px; height: 12px; 
-                         background-color: #66c597; border-radius: 50%; margin-right: 8px;"></span>
+                         background-color: #56B4E9; border-radius: 50%; margin-right: 8px;  border: 1px solid black;"></span>
             Rain Gage Sites
         </div>
         <hr style="border: none; border-top: 3px solid #74737A; margin: 5px 0;">
@@ -207,17 +209,17 @@ def add_isp_map_legend(m, layer_name='ISP Sites', show=True):
         <h4 style="margin: 0 0 10px 0; font-size: 16px; text-align: center; font-weight: bold;">ISP Sites</h4>
         <div style="margin: 5px 0;">
             <span style="display: inline-block; width: 12px; height: 12px; 
-                         background-color: #f77760; border-radius: 50%; margin-right: 8px;"></span>
+                         background-color: #D55E00; border-radius: 50%; margin-right: 8px;  border: 1px solid black;"></span>
             Sites Supporting ISP, WQBE and WQI
         </div>
         <div style="margin: 5px 0;">
             <span style="display: inline-block; width: 12px; height: 12px; 
-                         background-color: #F7E360; border-radius: 50%; margin-right: 8px;"></span>
+                         background-color: #F0E442; border-radius: 50%; margin-right: 8px;  border: 1px solid black;"></span>
             Sites Supporting WQI and other programs
         </div>
         <div style="margin: 5px 0;">
             <span style="display: inline-block; width: 12px; height: 12px; 
-                         background-color: #23AFA5; border-radius: 50%; margin-right: 8px;"></span>
+                         background-color: #009E73; border-radius: 50%; margin-right: 8px;  border: 1px solid black;"></span>
             SWM Funded ISP Sites
         </div>
         <hr style="border: none; border-top: 3px solid #74737A; margin: 5px 0;">
@@ -317,7 +319,7 @@ def add_sites_colored_by_parameter(m, sites_gdf, layer_name='Sites by Parameter'
 
 def add_filtered_sites(m, sites_gdf, parameter_filter=None, program_filter=None, 
                        exclude_empty_notes=False, layer_name='Sites', 
-                       color='black', show=True, radius=5):
+                       color='black', fill_color = 'black', weight = 0, show=True, radius=5):
     """Add filtered sites to map"""
     if sites_gdf.empty:
         return m
@@ -362,9 +364,9 @@ def add_filtered_sites(m, sites_gdf, parameter_filter=None, program_filter=None,
             popup=folium.Popup(popup_text, max_width=300),
             tooltip=f"Site: {row.get('site', 'N/A')}",
             color=color,
-            fillColor=color,
+            fillColor=fill_color,
             fillOpacity=1,
-            weight=0,
+            weight=weight,
         ).add_to(sites_layer)
     
     sites_layer.add_to(m)
@@ -475,8 +477,8 @@ def create_map(sites_gdf, wtd_service_area, wtd_basins):
     non_discharge_sites = sites_gdf[(sites_gdf["parameter"] != "discharge") & (sites_gdf["WTD vs SWM"] == "WTD")]
    
     #add_filtered_sites(m, non_wtd_sites, layer_name='Non WTD Sites', color='#969696', show=True, radius=6)
-    add_filtered_sites(m, discharge_sites, layer_name='Stream Gage Sites', color='#00A5E2', show=True, radius=6)
-    add_filtered_sites(m, non_discharge_sites, layer_name='Rain Gage Sites', color='#66c597', show=True, radius=6)
+    add_filtered_sites(m, discharge_sites, layer_name='Stream Gage Sites', fill_color='#009E73', color = 'black', weight = 1,show=True, radius=6)
+    add_filtered_sites(m, non_discharge_sites, layer_name='Rain Gage Sites', fill_color='#56B4E9', color = 'black', weight = 1,show=True, radius=6)
     # discharge '#00A5E2' other stream gage ##8DD7BF #e4a248'#8DD7BF'
     # Add legend
     add_map_legend(m, layer_name='discharge sites', show=True)
@@ -602,23 +604,25 @@ def create_isp_map(sites_gdf, wtd_service_area, wtd_basins):
     #Sites Supporting ISP, WQBE and WQI  Orange
     add_filtered_sites(m, isp_wqbe_wqi, parameter_filter=None, program_filter=None, 
                        exclude_empty_notes=False, layer_name="Sites Supporting ISP, WQBE and WQI", 
-                       color='#F77760', show=True, radius=5)
- 
+                       fill_color='#D55E00', color = 'black', weight = 1,show=True, radius=5) # a red
+   
+   
+                 
     # Add legend
     add_isp_map_legend(m, layer_name="Sites Supporting ISP, WQBE and WQI", show=True)
 
     #Sites Supporting WQI and other programs
     add_filtered_sites(m, wqi, parameter_filter=None, program_filter=None, 
                        exclude_empty_notes=False, layer_name="Sites Supporting WQI and other programs", 
-                       color='#F7E360', show=True, radius=5)
+                       fill_color='#F0E442', color = 'black', weight = 1, show=True, radius=5) # yellow
     # Add legend
     add_isp_map_legend(m, layer_name="Sites Supporting WQI and other programs", show=True)
     
     #SWM funded ISP
     add_filtered_sites(m, swm, parameter_filter=None, program_filter=None, 
                        exclude_empty_notes=False, layer_name="SWM Funded ISP Site", 
-                       color='#23AFA5', show=True, radius=5)
-    print(swm)
+                       fill_color='#009E73', color = 'black', weight = 1, show=True, radius=5) # green
+    
     # Add legend
     add_isp_map_legend(m, layer_name="SWM Funded ISP Site", show=True)
             
@@ -631,7 +635,7 @@ def create_isp_map(sites_gdf, wtd_service_area, wtd_basins):
     folium.LayerControl(collapsed=False, show=False).add_to(m)
     
     return m
-def save_map_screenshot(html_path, output_path, pdf_path, window_size=(729, 943)):
+def save_map_screenshot(html_path, output_path, window_size=(729, 943)):
     """Save map as static PNG screenshot"""
     
     # Read original HTML
@@ -662,34 +666,48 @@ def save_map_screenshot(html_path, output_path, pdf_path, window_size=(729, 943)
         f.write(static_html)
     
     # Take screenshot of static version
-    chrome_options = Options()
+    """chrome_options = Options()
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-gpu')
-    chrome_options.add_argument(f'--window-size={window_size[0]},{window_size[1]}')
-    
-    driver = webdriver.Chrome(options=chrome_options)
+    chrome_options.add_argument(f'--window-size={window_size[0]},{window_size[1]}')"""
+    """driver = webdriver.Chrome(options=chrome_options)
     html_uri = Path(static_html_path).resolve().as_uri()
     driver.get(html_uri)
-    time.sleep(2)
-    driver.save_screenshot(output_path)
+    time.sleep(2)"""
+    
+    options = Options()
+    options.add_argument("--headless")
+    options.add_argument("--disable-gpu")
+    options.add_argument("--window-size=729,943")
+
+    driver = webdriver.Edge(options=options)
+    html_uri = Path(static_html_path).resolve().as_uri()
+    #driver.get(html_uri)
+    #driver.save_screenshot(output_path)
+    try:
+        driver.get(html_uri)
+        time.sleep(5)
+        driver.save_screenshot(output_path)
+    finally:
+        driver.close()
+        driver.quit()
+    #driver.save_screenshot(output_path)
   
 
     
 
-    # Wait for page to render (optional)
-    time.sleep(2)
+    ## Wait for page to render (optional)
+    #time.sleep(2)
 
     # Use Chrome DevTools Protocol (CDP) to print to PDF
-    pdf = driver.execute_cdp_cmd("Page.printToPDF", {
-        "printBackground": True,
-        "landscape": False
-    })
+    #pdf = driver.execute_cdp_cmd("Page.printToPDF", {
+    #    "printBackground": True,
+    #    "landscape": False
+    #})
 
     # Save the base64-encoded PDF data to file
-    with open(pdf_path, "wb") as f:
-        f.write(base64.b64decode(pdf['data']))
-
-    driver.quit()
+    #with open(pdf_path, "wb") as f:
+    #    f.write(base64.b64decode(pdf['data']))
 
    
     # Optionally remove temporary static file
@@ -723,7 +741,6 @@ if __name__ == "__main__":
     save_map_screenshot(
         html_path='data/wtd_map.html',
         output_path='data/wtd_map.png',
-        pdf_path='data/wtd_map.pdf',
         window_size=(729, 943)
     )
     
@@ -736,10 +753,15 @@ if __name__ == "__main__":
     m.save("data/isp_map.html")
 
     # Save screenshot
+    #save_map_screenshot(
+    #    html_path='data/isp_map.html',
+    #    output_path='data/isp_map.png',
+    #    pdf_path='data/isp_map.pdf',
+    #    window_size=(729, 943)
+    #)
     save_map_screenshot(
         html_path='data/isp_map.html',
         output_path='data/isp_map.png',
-        pdf_path='data/isp_map.pdf',
         window_size=(729, 943)
     )
     print("Map generation complete!")
